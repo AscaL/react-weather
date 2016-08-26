@@ -4,7 +4,11 @@
   "description": "React Weather to train React",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack -d --watch",
+    "build": "webpack -p",
+    "start": "webpack-dev-server",
+    "lint": "eslint src/app"
   },
   "repository": {
     "type": "git",
@@ -15,5 +19,24 @@
   "bugs": {
     "url": "https://github.com/AscaL/react-weather/issues"
   },
-  "homepage": "https://github.com/AscaL/react-weather#readme"
+  "homepage": "https://github.com/AscaL/react-weather#readme",
+  "dependencies": {
+    "axios": "^0.9.1",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "react-router": "^2.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.5.2",
+    "babel-loader": "^6.2.4",
+    "babel-preset-react": "^6.5.0",
+    "html-webpack-plugin": "^2.9.0",
+    "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.14.1",
+    "eslint": "^3.2.2",
+    "eslint-config-airbnb": "^10.0.0",
+    "eslint-plugin-import": "^1.13.0",
+    "eslint-plugin-jsx-a11y": "^2.1.0",
+    "eslint-plugin-react": "^6.0.0"
+  }
 }
