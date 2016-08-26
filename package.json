@@ -1,0 +1,19 @@
+{
+  "name": "react-weather",
+  "version": "1.0.0",
+  "description": "React Weather to train React",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AscaL/react-weather.git"
+  },
+  "author": "AscaL",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AscaL/react-weather/issues"
+  },
+  "homepage": "https://github.com/AscaL/react-weather#readme"
+}
