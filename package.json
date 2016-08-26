@@ -21,9 +21,9 @@
   },
   "homepage": "https://github.com/AscaL/react-weather#readme",
   "dependencies": {
-    "axios": "^0.9.1",
-    "react": "^0.14.7",
-    "react-dom": "^0.14.7",
+    "axios": "^0.13.1",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
     "react-router": "^2.0.0"
   },
   "devDependencies": {
