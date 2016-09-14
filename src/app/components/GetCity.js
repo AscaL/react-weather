@@ -1,22 +1,47 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import {styles} from '../styles/index';
 
-const style = {
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  maxWidth: 300,
-  alignSelf: 'right'
+function getStyles() {
+  return {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: '5px',
+    color: '#fff',
+    maxWidth: 300,
+    alignSelf: 'right'
+  }
+}
+
+function InputField() {
+  return (
+    <input
+      className="form-control"
+      placeholder="Rome, Italy"
+      type='text'
+    />
+  )
+}
+
+function Button({children}) {
+  return (
+    <button type='button'
+      style={{margin: 10}}
+      className='btn btn-success' >
+      {children}
+    </button>
+  )
 }
 
 export default function GetCity () {
   return (
-      <div style={style}>
-      <input className="form-control" placeholder="Rome, Italy"></input>
-      <button type="button" className="btn btn-success" value="get city 2">
-        get city
-      </button>
-
-      </div>
-    );
+    <div style={getStyles()}>
+      <InputField />
+      <Button >
+        Get Weather
+      </Button>
+    </div>
+  );
 }
+

@@ -20,7 +20,7 @@ export const styles = {
   },
   mainHeader: {
     display: 'flex',
-    justifyContent: 'spaceBetween',
+    justifyContent: 'space-between',
     alignItems: 'center',
     background: 'rgba(252, 90, 44, 0.89)',
     color: '#fff',
