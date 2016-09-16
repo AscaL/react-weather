@@ -17,6 +17,7 @@ export default class GetCityContainer extends Component {
     console.log('this.state.city:', this.state.city);
     e.preventDefault()
     getForecast(this.state.city);
+    this.context.router.push('/forecast/' + this.state.city);
   }
 
   handleUpdateCity(e) {

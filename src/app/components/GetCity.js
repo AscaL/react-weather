@@ -27,7 +27,6 @@ function InputField({city, onUpdateCity}) {
 }
 
 function Button({children, onSubmitCity}) {
-  console.log('onSubmitCity:', onSubmitCity);
   return (
     <button type='button'
       style={{margin: 10}}
@@ -39,7 +38,7 @@ function Button({children, onSubmitCity}) {
 }
 
 export default function GetCity (props) {
-  console.log('props:', props);
+  console.log('props in getcity:', props);
   return (
     <div style={getStyles(props)}>
       <InputField
