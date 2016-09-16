@@ -32,9 +32,7 @@ function ForecastUI ({city, forecast, handleClick}) {
       <h1 style={styles.header}>{city}</h1>
       <p style={styles.subheader}>Select a day</p>
       <div style={styles.container}>
-        {forecast.list.map((listItem) => (
-          <DayItem key={listItem.dt} day={listItem} handleClick={handleClick.bind(null, listItem)} />
-        ))}
+
       </div>
     </div>
   )

@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react'
 import GetCity from '../components/GetCity';
-import { getForecast, getCurrentWeather } from '../helpers/api';
 
 export default class GetCityContainer extends Component {
   constructor() {
@@ -13,15 +12,10 @@ export default class GetCityContainer extends Component {
   }
 
   handleSubmitCity(e) {
-    console.log('calling handleSubmitCity');
-    console.log('this.state.city:', this.state.city);
-    e.preventDefault()
-    getForecast(this.state.city);
     this.context.router.push('/forecast/' + this.state.city);
   }
 
   handleUpdateCity(e) {
-    console.log('calling handleUpdateCity');
     e.preventDefault()
     this.setState({
       city: e.target.value //takes the value of the input field e make city that value
