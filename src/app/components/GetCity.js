@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react';
 import {styles} from '../styles/index';
 
-function getStyles() {
+function getStyles({direction}) {
   return {
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: direction || 'column',
     justifyContent: 'center',
     alignItems: 'center',
     padding: '5px',
@@ -14,34 +14,48 @@ function getStyles() {
   }
 }
 
-function InputField() {
+function InputField({city, onUpdateCity}) {
   return (
     <input
       className="form-control"
+      onChange={onUpdateCity}
       placeholder="Rome, Italy"
       type='text'
+      value={city}
     />
   )
 }
 
-function Button({children}) {
+function Button({children, onSubmitCity}) {
+  console.log('onSubmitCity:', onSubmitCity);
   return (
     <button type='button'
       style={{margin: 10}}
-      className='btn btn-success' >
+      className='btn btn-success'
+      onClick={onSubmitCity}>
       {children}
     </button>
   )
 }
 
-export default function GetCity () {
+export default function GetCity (props) {
+  console.log('props:', props);
   return (
-    <div style={getStyles()}>
-      <InputField />
-      <Button >
+    <div style={getStyles(props)}>
+      <InputField
+        onUpdateCity={props.onUpdateCity}
+        city={props.city} />
+      <Button
+        onSubmitCity={props.onSubmitCity} >
         Get Weather
       </Button>
     </div>
   );
 }
 
+GetCity.propTypes = {
+  direction: PropTypes.string,
+  onSubmitCity: PropTypes.func.isRequired,
+  onUpdateCity: PropTypes.func.isRequired,
+  city: PropTypes.string.isRequired
+}
