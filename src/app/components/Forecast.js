@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
-import { getDat } from '../helpers/utils'
+import { getDate, convertTemp } from '../helpers/utils';
+import DayItem from './DayItem'
 
 const styles = {
   container: {
@@ -23,6 +24,16 @@ const styles = {
     textAlign: 'center',
     marginTop: 50,
     marginBottom: 30,
+  },
+  dayContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    margin: 35
+  },
+  weather: {
+    height: 130
   }
 }
 
@@ -32,7 +43,9 @@ function ForecastUI ({city, forecast, handleClick}) {
       <h1 style={styles.header}>{city}</h1>
       <p style={styles.subheader}>Select a day</p>
       <div style={styles.container}>
-
+        {forecast.list.map((listItem) => (
+          <DayItem key={listItem.dt} day={listItem} handleClick={handleClick.bind(null, listItem)} />
+        ))}
       </div>
     </div>
   )
@@ -40,8 +53,22 @@ function ForecastUI ({city, forecast, handleClick}) {
 
 export default function Forecast(props) {
   console.log('props in forecast:', props);
+  console.log('props.isLoading:', props.isLoading);
   return (
-    <div> FOrecast component </div>
+    <div>
+      {
+        props.isLoading === true
+          ? <h1 style={styles.header}> Loading... </h1>
+          : <ForecastUI city={props.city} forecast={props.forecastData} handleClick={props.handleClick} />
+      }
+
+    </div>
   )
 
+}
+
+Forecast.propTypes = {
+  city: PropTypes.string.isRequired,
+  forecastData: PropTypes.object.isRequired,
+  isLoading: PropTypes.bool.isRequired
 }

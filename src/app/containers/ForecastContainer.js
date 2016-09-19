@@ -2,13 +2,22 @@ import React, { Component } from 'react';
 import Forecast from '../components/Forecast'
 import { getForecast } from '../helpers/api';
 
-export default class GetCityContainer extends Component {
+export default class ForecastContainer extends Component {
   constructor() {
     super();
     this.state = {
       isLoading: true,
       forecastData: {}
     }
+  }
+
+  componentDidMount() {
+    console.log('ForecastContainer comp did mount');
+    this.makeRequest(this.props.routeParams.city)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.makeRequest(nextProps.routeParams.city)
   }
 
   makeRequest(city) {
@@ -18,18 +27,32 @@ export default class GetCityContainer extends Component {
         isLoading: false,
         forecastData: forecastData
       })
+      console.log('forecastdata:', forecastData);
+    })
+  }
+
+  handleClick(weather) {
+    this.context.router.push({
+      pathname: '/detail/' + this.props.routeParams.city,
+      state: {
+        weather
+      }
     })
   }
 
   render() {
     return (
-      <Forecast />
+      <Forecast
+        city={this.props.routeParams.city}
+        isLoading={this.state.isLoading}
+        forecastData={this.state.forecastData}
+        handleClick={(weather) => this.handleClick(weather)}
+      />
     )
   }
 
+}
 
-
-
-
-
+ForecastContainer.contextTypes = {
+  router: React.PropTypes.object.isRequired
 }
