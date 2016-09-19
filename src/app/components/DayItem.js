@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { getDate, convertTemp } from '../helpers/utils';
 
 const styles = {
@@ -21,7 +21,6 @@ const styles = {
 
 
 export default function DayItem ({day, handleClick}) {
-  console.log('__dirname:', __dirname);
   const date = getDate(day.dt)
   const { icon } = day.weather[0]
   return (
